@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-image: url('https://images.squarespace-cdn.com/content/v1/51761425e4b0e95e599b06f4/1572035767193-DK9AZDBWC3TS2QKUQAVG/FAST+OC+METALLIC+CARTRIDGE+RELOADING+COURSE.jpg?format=1500w');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh
 }
 
 .App-logo {
@@ -50,7 +54,7 @@ h1 {
   font-size: 150px;
   font:bold;
   color:greenyellow;
-  background-image: 'headerbackground.jpg';
+  /* background-color: red; */
+  text-Shadow: 17px 17px 15px black
   
 }
-

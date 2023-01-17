@@ -1,44 +1,68 @@
-import React, {useState, useRef} from 'react'
+import {useState, useContext} from 'react'
 import axios from 'axios'
-import {useDispatch } from 'react-redux'
+import AuthContext from '../store/authContext'
 
 const AuthScreen = () => {
-  const [register, setRegister] = useState(false)
-  const nameRef = useRef()
-  const passRef = useRef()
-  const dispatch = useDispatch()
+    const [register, setRegister] = useState(true)
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [message, setMessage] = useState('')
+    const [display, setDisplay] = useState('none')
 
-  const toggle = () => setRegister(!register)
+    const authCtx = useContext(AuthContext)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const body = {
-      username: nameRef.current.value,
-      password: passRef.current.value
+    const submitHandler = e => {
+        e.preventDefault()
+
+        setDisplay('none')
+
+        const body = {
+            username,
+            password
+        }
+
+        const url = 'https://socialmtn.devmountain.com'
+
+        axios.post(register ? `${url}/register` : `${url}/login`, body)
+            .then((res) => {
+                console.log('AFTER AUTH', res.data)
+                authCtx.login(res.data.token, res.data.exp, res.data.userId)
+            })
+            .catch(err => {
+                setMessage(err.response.data)
+                setDisplay('block')
+                setPassword('')
+                setUsername('')
+            })
     }
 
-    axios
-      .post(register ? '/api/register' : '/api/login', body)
-      .then((res) => {
-        dispatch({type: 'LOGIN', payload: res.data})
-        console.log(res.data)
-      })
-      .catch((err) => {
-        console.error(err)
-      })
-  }
-
-  return (
-    <div className='main-page'>
-      <h1>{register ? "Register" : "Login"}</h1>
-      <form onSubmit={handleSubmit}>
-        <input placeholder='Username' ref={nameRef}/>
-        <input placeholder='Password' ref={passRef}/>
-        <button>{register ? "Register" : "Login"}</button>
-      </form>
-      <button onClick={toggle}>Need to {!register ? "Register" : "Login"}?</button>
-    </div>
-  )
+    return (
+        <main>
+            <h1>Sign Up</h1>
+            <form className='form auth-form' onSubmit={submitHandler}>
+                <input 
+                    type='text' 
+                    placeholder='username' 
+                    value={username}
+                    onChange={e => setUsername(e.target.value)}
+                    className='form-input'/>
+                <input 
+                    type='password' 
+                    placeholder='password' 
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    className='form-input'/>
+                <button className='form-btn'>
+                    {register ? 'Sign Up' : 'Login'}
+                </button>
+            </form>
+            <p style={{display: display}} className='auth-msg'>{message}</p>
+            <button className='form-btn' onClick={() => setRegister(!register)}>
+                Need to {register ? 'Login' : 'Sign Up'}?
+            </button>
+        </main>
+    )
 }
+
 
 export default AuthScreen

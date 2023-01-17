@@ -2,7 +2,8 @@ import './App.css';
 import Header from './components/Header';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home'
-import Auth from '../src/Screens/AuthScreen'
+import AuthScreen from '../src/Screens/AuthScreen'
+// import Auth from '../src/components/auth'
 
 // import HomeScreen from './screens/HomeScreen';
 // import AuthScreen from './Screens/AuthScreen';
@@ -19,7 +20,7 @@ function App() {
       <Routes>
         
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<Auth />} />
+        <Route path="/auth" element={<AuthScreen />} />
         
       </Routes>
     </div>
