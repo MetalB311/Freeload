@@ -22,7 +22,7 @@ const Header = () => {
           </button>
         </Link>
         
-          <Link to= '/Auth'>
+          <Link to= '/'>
           <button onClick={handleMenu} className="nav-btn">
             Login
           </button>

@@ -1,12 +1,12 @@
 import React, {useState, useRef} from 'react'
 import axios from 'axios'
-// import { useSelector, useDispatch } from 'react-redux'
+import {useDispatch } from 'react-redux'
 
 const AuthScreen = () => {
   const [register, setRegister] = useState(false)
   const nameRef = useRef()
   const passRef = useRef()
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
   const toggle = () => setRegister(!register)
 
