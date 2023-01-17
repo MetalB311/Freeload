@@ -3,15 +3,19 @@
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 80vw;
+  width: 90vw;
+  /* padding: 50px; */
+  margin-top: 50px;
+ margin-left: 50px;
+ margin-right: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 .App-header {
   background-color: #282c34;
@@ -24,8 +28,12 @@
   color: white;
 }
 
-.App-link {
+.Login-link {
   color: #61dafb;
+}
+
+.CreateAcct-link {
+  color: red
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +43,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+h1 {
+  font-size: 150px;
+  font:bold;
+  color:greenyellow;
+  background-image: 'headerbackground.jpg';
+  
 }
