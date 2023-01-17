@@ -1,68 +1,74 @@
-import logo from './images/background3.jpg';
-import './App.css';
+// import logo from './images/background3.jpg';
+// import './App.css';
+// // import auth from '../server/controllers/authScreen'
+// import Home from '../src/components/Home'
 
+
+
+// function App() {
+//   return (
+    
+//     <div className="App">
+//       <header className="App-header">
+//       <h1> FreeLoad </h1>
+//         <input placeholder='Email'/>
+//         <input placeholder='password'/>
+//       <a 
+//           className="CreateAcct-link"
+//           href=''
+//           target='_blank'
+//           rel='noopener moreferrer'>
+//             Create Account </a>
+           
+
+//             <input placeholder='Email'/>
+//             <input placeholder='password'/>
+            
+//         <a
+//           className="Login-link"
+//           href='Home'
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Login
+//         </a>
+        
+//         <img src={logo} className="App-logo" alt="logo" />
+       
+       
+//       </header>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+import './App.css';
+import Header from './components/Header';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home'
+
+// import HomeScreen from './screens/HomeScreen';
+// import AuthScreen from './Screens/AuthScreen';
+// import ProductScreen from './screens/ProductScreen';
+// import AdminScreen from './screens/AdminScreen';
+// import { useSelector } from 'react-redux';
+// import { Navigate } from 'react-router-dom';
 
 function App() {
-  return (
     
+  return (
     <div className="App">
-      <header className="App-header">
-      <h1> FreeLoad </h1>
-      <a 
-          className="CreateAcct-link"
-          href='auth'
-          target='_blank'
-          rel='noopener moreferrer'>
-            Create Account </a>
-
-        <a
-          className="Login-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Login
-        </a>
+      <Header />
+      <Routes>
         
-        <img src={logo} className="App-logo" alt="logo" />
-       
-       
-      </header>
+        <Route path="/" element={<Home />} />
+        
+      </Routes>
     </div>
   );
 }
 
 export default App;
-
-
-
-// import {useContext} from 'react'
-// import {Routes, Route, Navigate} from 'react-router-dom'
-// import './App.css';
-
-// import Header from './components/Header'
-// // import Home from './components/Home'
-// // import Auth from './components/Auth'
-// // import Form from './components/Form'
-// // import Profile from './components/Profile'
-// // import AuthContext from './store/authContext'
-
-
-// const App = () => {
-//   // const authCtx = useContext(AuthContext)
-
-//   return (
-//     <div className="app">
-//       <Header/>
-//        <Routes>
-//         {/* <Route path='/' element={<Home/>}/>
-//         <Route path='/auth' element={!authCtx.token ? <Auth/> : <Navigate to='/'/>}/>
-//         <Route path='/form' element={authCtx.token ? <Form/> : <Navigate to='/Form'/>}/>
-//         <Route path='/profile' element={authCtx.token ? <Profile/> : <Navigate to='/auth'/>}/>
-//         <Route path='*' element={<Navigate to='/'/>}/> */}
-//        </Routes>
-//     </div>
-//   )
-// }
-
-// export default App
