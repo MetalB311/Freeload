@@ -21,7 +21,7 @@ const AuthScreen = () => {
             password
         }
 
-        const url = 'https://socialmtn.devmountain.com'
+        const url = 'https://git.heroku.com/freeloader2023.git'
 
         axios.post(register ? `${url}/register` : `${url}/login`, body)
             .then((res) => {

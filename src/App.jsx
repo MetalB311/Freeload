@@ -7,7 +7,7 @@ import AuthScreen from '../src/Screens/AuthScreen'
 
 // import HomeScreen from './screens/HomeScreen';
 // import AuthScreen from './Screens/AuthScreen';
-// import ProductScreen from './screens/ProductScreen';
+import Product from './components/Product';
 // import AdminScreen from './screens/AdminScreen';
 // import { useSelector } from 'react-redux';
 // import { Navigate } from 'react-router-dom';
@@ -21,7 +21,7 @@ function App() {
         
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<AuthScreen />} />
-        
+        <Route path='/product' element={<Product />} />
       </Routes>
     </div>
   );
